@@ -7,5 +7,8 @@ const store = configureStore({
   },
 });
 
+// Appel à la récupération des tâches au démarrage de l'application
+store.dispatch({ type: 'tasks/fetchTasks' });
+
 export type RootState = ReturnType<typeof store.getState>;
 export default store;

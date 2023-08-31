@@ -1,7 +1,7 @@
 "use client"; // This is a client component 👈🏽
 
 import { useState } from 'react';
-import { useAddTask } from '../use-cases/AddtasksUseCase';
+import { useAddTask } from '../use-cases/AddTasksUseCase';
 
 export default function AddTaskForm() {
     const [taskTitle, setTaskTitle] = useState('');
