@@ -4,7 +4,6 @@ import { Task } from '../entities/Task';
 import fs from 'fs'; // Importez le module fs
 import { promisify } from 'util'; // Importez le module util pour promisifier les fonctions
 
-
 export const getTasks = (): Task[] => {
   return tasksData.tasks;
 };

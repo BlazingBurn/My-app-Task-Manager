@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch } from '@/node_modules/react-redux/es/exports';
 import { deleteTask } from '../slices/tasksSlice';
 
 export function useDeleteTask() {

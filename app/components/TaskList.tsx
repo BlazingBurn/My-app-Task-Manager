@@ -1,12 +1,16 @@
 "use client"; // This is a client component 👈🏽
-import { useSelector } from 'react-redux';
+import { useSelector } from '@/node_modules/react-redux/es/exports';
 import { RootState } from '../store';
 import { useDeleteTask } from '../use-cases/DeleteTasksUseCase';
 import { Task } from '../entities/Task';
 
 export default function TaskList() {
-    const tasks = useSelector((state: RootState) => state.tasks);
-    
+    const tasks = useSelector((state: RootState) => state.tasks.tasks);
+
+    console.log('====================================');
+    console.log(tasks);
+    console.log('====================================');
+ 
     const { deleteTask } = useDeleteTask(); 
     const handleDeleteTask = (taskId: number) => {
         deleteTask(taskId);

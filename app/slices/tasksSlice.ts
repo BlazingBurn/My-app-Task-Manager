@@ -1,26 +1,31 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { Task } from '../entities/Task';
 import { getTasks } from '../repository/tasksRepository';
+
+interface TasksState {
+  tasks: Task[];
+}
+
+const initialState: TasksState = {
+  tasks : getTasks()
+}
 
 const tasksSlice = createSlice({
   name: 'tasks',
-  initialState: [],
+  initialState,
   reducers: {
     addTask: (state, action) => {
-      state.push(action.payload);
+      console.log(action)
+      state.tasks.push(action.payload);
+      console.log(state)
     },
-    deleteTask(state, action: PayloadAction<number>) {
-      state.tasks = state.tasks.filter(task => task.id !== action.payload);
+    deleteTask:(state, action)=> {
+      console.log(state)
+      state.tasks = state.tasks.filter((task: Task) => task.id !== action.payload);
     },
     // TODO Ajoutez d'autres reducers ici pour gérer la modification et la suppression des tâches.
   },
 
-  // Ajoutez une partie "extraReducers" pour récupérer les tâches au démarrage
-  extraReducers: (builder) => {
-    builder.addCase('tasks/fetchTasks', (state, action) => {
-      const tasks = getTasks();
-      return [...state, ...tasks]; // Ajoute les tâches récupérées à l'état initial
-    });
-  },
 });
 
 export const { addTask, deleteTask } = tasksSlice.actions;
