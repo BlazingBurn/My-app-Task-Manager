@@ -6,10 +6,11 @@ export default function TaskList() {
     const tasks = useSelector((state: RootState) => state.tasks);
     
     return (
-        <ul>
-        {tasks.map(task => (
-            <li key={task.id}>{task.title}</li>
-        ))}
-        </ul>
+        <ul class="list-disc list-inside">
+  {tasks.map(task => (
+    <li key={task.id} class="py-1">{task.title}</li>
+  ))}
+</ul>
+
     );
 }
