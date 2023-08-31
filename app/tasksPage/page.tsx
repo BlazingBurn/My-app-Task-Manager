@@ -6,10 +6,10 @@ import store from '../store';
 
 export default function TasksPage() {
   return (
-    <div class="flex justify-center items-center h-screen">
-      <div class="p-4 text-center border border-gray-300 rounded-lg">
-        <h1 class="text-2xl font-bold mb-4">Gestionnaire de tâches</h1>
-        <div class="space-y-4">
+    <div className="flex justify-center items-center h-screen">
+      <div className="p-4 text-center border border-gray-300 rounded-lg">
+        <h1 className="text-2xl font-bold mb-4">Gestionnaire de tâches</h1>
+        <div className="space-y-4">
           <Provider store={store}>
             <AddTaskForm />
             <TaskList />
